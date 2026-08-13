@@ -1,0 +1,297 @@
+@import "tailwindcss";
+
+
+@layer utilities {
+  @keyframes float-particle {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0;
+    }
+
+    5% {
+      opacity: 1;
+    }
+
+    95% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(-100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+	@keyframes fade-in {
+		from {
+			transform: translateY(20px);
+			opacity: 0;
+			filter: blur(16px);
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+			filter: blur(0);
+		}
+	}
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+  
+  @keyframes prism-sweep {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+  @keyframes gradient-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+
+    50% {
+      transform: scale(1.2);
+      opacity: 0.1;
+    }
+  }
+
+  @keyframes skill-icon {
+    0%,
+    100% {
+      transform: translateY(0)
+    }
+    50% {
+      transform: translateY(-10px)
+    }
+  }
+
+	.glow {
+		text-shadow: 0 0 6px var(--color-accent-cyan);
+	}
+
+  .glow-border {
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent-cyan) 20%, transparent),
+    inset 0 0 20px color-mix(in srgb, var(--color-accent-cyan) 5%, transparent)
+  }
+
+	.animate-fade-in {
+		animation: fade-in 0.8s ease-out both;
+	}
+
+	.animate-float {
+		animation: float 4s ease-in-out infinite;
+	}
+
+  .animate-skill-icon {
+    animation: skill-icon 3000ms ease-in-out infinite;
+  }
+
+  .animate-gradient-flow {
+    animation: gradient-flow 5s ease infinite;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 60s linear infinite;
+  }
+
+  .marquee-group {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+
+	.animation-delay-100 {
+		animation-delay: 100ms;
+	}
+	.animation-delay-200 {
+		animation-delay: 200ms;
+	}
+	.animation-delay-300 {
+		animation-delay: 300ms;
+	}
+	.animation-delay-400 {
+		animation-delay: 400ms;
+	}
+	.animation-delay-500 {
+		animation-delay: 500ms;
+	}
+	.animation-delay-600 {
+		animation-delay: 600ms;
+	}
+	.animation-delay-700 {
+		animation-delay: 700ms;
+	}
+	.animation-delay-800 {
+		animation-delay: 800ms;
+	}
+}
+
+@theme inline {
+  --color-primary-black: var(--primary-black);
+  --color-carbon-dark: var(--carbon-dark);
+  --color-carbon-medium: var(--carbon-medium);
+  --color-carbon-light: var(--carbon-light);
+  --color-metal-dark: var(--metal-dark);
+  --color-metal-light: var(--metal-light);
+  --color-accent-red: var(--accent-red);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-green: var(--accent-green);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-dim: var(--text-dim);
+  --font-inter: var(--font-inter);
+  --font-space-grotesk: var(--font-space-grotesk);
+}
+
+:root {
+  --primary-black: #0a0a0a;
+  --carbon-dark: #121212;
+  --carbon-medium: #1a1a1a;
+  --carbon-light: #2a2a2a;
+  --metal-dark: #3a3a3a;
+  --metal-light: #4a4a4a;
+  --accent-red: #ff3333;
+  --accent-blue: #17b2ff;
+  --accent-green: #00ff88;
+  --accent-purple: #7c1df0;
+  --accent-cyan: #00ffff;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-dim: #808080;
+}
+
+
+body {
+  background: var(--primary-black);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Carbon Fiber Background Pattern */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      var(--primary-black) 2px,
+      var(--primary-black) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      var(--primary-black) 2px,
+      var(--primary-black) 4px
+    ),
+    linear-gradient(
+      135deg,
+      var(--primary-black) 0%,
+      var(--carbon-dark) 25%,
+      var(--carbon-medium) 50%,
+      var(--carbon-dark) 75%,
+      var(--primary-black) 100%
+    );
+  z-index: -2;
+}
+
+/* Animated Grid Overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(71, 122, 255, 0.06) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(71, 51, 255, 0.06) 2px, transparent 2px);
+  background-size: 150px 150px;
+  animation: gridMove 20s linear infinite;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(150px, 150px);
+  }
+}
+
+.top-fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #000;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 40%,
+    transparent 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 40%,
+    transparent 100%
+  );
+
+  z-index: 40;
+  pointer-events: none;
+}
+
