@@ -1,3 +1,4 @@
+/* animated navbar svg headline */
 h1 svg {
   width: clamp(7.5rem, 15vw, 10.5rem);
 }
@@ -27,6 +28,9 @@ h1 svg path {
   }
 }
 
+/* ------------------ */
+
+/* animated navar gradient border */
 nav::before {
   content: "";
   position: absolute;
@@ -62,6 +66,9 @@ nav::before {
   }
 }
 
+/* ------------------ */
+
+/* nav links style */
 nav .ul {
   position: absolute;
   gap: 1.4rem;
@@ -143,34 +150,9 @@ nav .ul a:hover::after {
   width: 100%;
 }
 
-/* button {
-  cursor: pointer;
-  background-image: linear-gradient(
-    135deg,
-    var(--accent-purple),
-    var(--accent-blue)
-  );
-  border: none;
-  padding: 0.3rem 0.4rem;
-  color: var(--text-primary);
-  transition: transform 0.1s ease-in-out;
-  -webkit-transition: transform 0.1s ease-in-out;
-  -moz-transition: transform 0.1s ease-in-out;
-  -ms-transition: transform 0.1s ease-in-out;
-  -o-transition: transform 0.1s ease-in-out;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-}
-button:active {
-  transform: scale(0.9);
-  -webkit-transform: scale(0.9);
-  -moz-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  -o-transform: scale(0.9);
-} */
+/* ------------------ */
+
+/* custom humburger menu icon */
 
 .menu-toggle {
   flex-direction: column;
@@ -198,6 +180,10 @@ button:active {
 .menu-toggle.active span:nth-child(3) {
   transform: rotate(45deg) translate(-5px, -6px);
 }
+
+/* ------------------ */
+
+/* changing the navlinks into a navbar menu on mobile screen */
 
 @media (max-width: 767px) {
   .menu-toggle {
@@ -231,6 +217,10 @@ button:active {
     height: 45px;
   }
 }
+
+/* ------------------ */
+
+/* fix the height of the navbar menu on screens that it's width is below than 768px on mobile landscape */
 
 @media (max-width: 767px) and (orientation: landscape) {
   nav .ul.active {

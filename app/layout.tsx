@@ -3,7 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,7 +17,8 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "Mahmoud | Front End Developer",
-  description: "Mahmoud Alaa — Frontend Developer specializing in React, Next.js, and TypeScript, focused on building modern and responsive web experiences.",
+  description:
+    "Mahmoud Alaa — Frontend Developer specializing in React, Next.js, and TypeScript, focused on building modern and responsive web experiences.",
 };
 
 export default function RootLayout({
@@ -28,15 +29,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full font-inter">
         <div className="top-fade"></div>
-          <Navbar />
-          <main className="grow">{children}</main>
-          <Footer/>
-          <ToastContainer position="bottom-right" toastStyle={{width: "min(320px, 80vw)"}}/>
+        <Navbar />
+        <main className="grow">{children}</main>
+        <Footer />
+        <ToastContainer
+          position="bottom-right"
+          toastStyle={{ width: "min(320px, 80vw)" }}
+        />
       </body>
     </html>
   );

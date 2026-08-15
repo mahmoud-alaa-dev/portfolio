@@ -44,25 +44,25 @@
     }
   }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
 
-  to {
-    transform: translateX(-50%);
+    to {
+      transform: translateX(-50%);
+    }
   }
-}
   
   @keyframes prism-sweep {
-  0% {
-    left: -100%;
-  }
+    0% {
+      left: -100%;
+    }
 
-  100% {
-    left: 100%;
+    100% {
+      left: 100%;
+    }
   }
-}
 
   @keyframes gradient-flow {
     0% {

@@ -57,7 +57,6 @@ const infoItemClass = `
   before:ease-in-out
 
   hover:before:left-[100%]
-
   hover:translate-x-[10px]
   hover:bg-[rgba(69,171,255,0.1)]
   hover:shadow-[0_5px_20px_rgba(69,_171,_255,_0.2)]

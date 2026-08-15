@@ -1,8 +1,8 @@
 import { cn, scrollToSection } from "@/lib/utils";
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string;
-  size?:"xs" | "sm" | "default" | "lg";
-  bg?:"default" | "purple" | "blue" | "cyan";
+  size?: "xs" | "sm" | "default" | "lg";
+  bg?: "default" | "purple" | "blue" | "cyan";
   children: React.ReactNode;
 };
 
@@ -21,7 +21,7 @@ const backgrounds = {
   purple: "bg-accent-purple",
   blue: "bg-accent-blue",
   cyan: "bg-accent-cyan",
-}
+};
 
 const Button = ({
   className = "",
@@ -30,10 +30,19 @@ const Button = ({
   children,
   ...props
 }: ButtonProps) => {
-  const classes = cn(baseClasses, sizeClasses[size], backgrounds[bg], className);
+  const classes = cn(
+    baseClasses,
+    sizeClasses[size],
+    backgrounds[bg],
+    className,
+  );
 
   return (
-    <button className={classes} {...props} onClick={() => scrollToSection("contact")}>
+    <button
+      className={classes}
+      {...props}
+      onClick={() => scrollToSection("contact")}
+    >
       {children}
     </button>
   );
