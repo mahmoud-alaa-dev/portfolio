@@ -140,7 +140,7 @@ export default function Hero() {
               <div className="flex items-center gap-3.75 animate-fade-in animation-delay-400">
                 <span>Follow:</span>
                 {socialLinks.map((social, i) => (
-                  <Link
+                  <a
                     key={i}
                     href={social.href}
                     target="_blank"
@@ -149,7 +149,7 @@ export default function Hero() {
                     className="w-10 h-10 bg-carbon-medium border border-metal-dark rounded-full flex items-center justify-center transition-all duration-300 hover:bg-linear-[135deg] from-accent-cyan to-accent-blue hover:border-accent-blue hover:text-text-primary hover:-translate-y-0.75 hover:shadow-[0_5px_20px_rgba(69,171,255,0.4)]"
                   >
                     <social.icon />
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>

@@ -1,7 +1,6 @@
 import Container from "../layout/Container";
 import { projects } from "@/data/projects";
 import Image from "next/image";
-import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 import { SiGithub } from "react-icons/si";
 
@@ -96,20 +95,20 @@ const Projects = () => {
                   </div>
                 </div>
                 <div className="p-6 flex gap-5">
-                  <Link
+                  <a
                     href={project.liveView}
                     target="_blank"
                     className="flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-accent-blue"
                   >
                     Live View <FiArrowUpRight />
-                  </Link>
-                  <Link
+                  </a>
+                  <a
                     href={project.githubLink}
                     target="_blank"
                     className="flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-accent-blue"
                   >
                     Github <SiGithub />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
