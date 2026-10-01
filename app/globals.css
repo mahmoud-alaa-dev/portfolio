@@ -200,6 +200,10 @@
   --text-dim: #808080;
 }
 
+*::selection {
+  background: #494343;
+  color: #ffffff;
+}
 
 body {
   background: var(--primary-black);
