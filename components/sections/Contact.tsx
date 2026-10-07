@@ -171,7 +171,7 @@ const Contact = () => {
               className={infoItemClass}
             >
               <div className={infoIconClass}>
-                <FaLocationDot />
+                <FaLocationDot aria-hidden="true" />
               </div>
               <div className="info-text">
                 <h4 className={infoText_h4_Class}>Location</h4>
@@ -184,7 +184,7 @@ const Contact = () => {
               className={infoItemClass}
             >
               <div className={infoIconClass}>
-                <IoMail />
+                <IoMail aria-hidden="true" />
               </div>
               <div className="info-text">
                 <h4 className={infoText_h4_Class}>Email</h4>
@@ -196,7 +196,7 @@ const Contact = () => {
 
             <a href="tel:+201096901703" className={infoItemClass}>
               <div className={infoIconClass}>
-                <FaPhone />
+                <FaPhone aria-hidden="true" />
               </div>
               <div className="info-text">
                 <h4 className={infoText_h4_Class}>Phone</h4>
@@ -217,11 +217,18 @@ const Contact = () => {
               <input
                 type="text"
                 id="name"
+                autoComplete="name"
+                aria-invalid={errors.name ? "true" : "false"}
+                aria-describedby={errors.name ? "name-error" : undefined}
+                aria-required="true"
                 {...register("name")}
                 className={formInputsClass}
               />
               {errors.name && (
-                <p className="text-start mt-2 text-sm text-red-400">
+                <p
+                  id="name-error"
+                  className="text-start mt-2 text-sm text-red-400"
+                >
                   {errors.name.message}
                 </p>
               )}
@@ -234,11 +241,18 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
+                autoComplete="email"
+                aria-invalid={errors.email ? "true" : "false"}
+                aria-describedby={errors.email ? "email-error" : undefined}
+                aria-required="true"
                 {...register("email")}
                 className={formInputsClass}
               />
               {errors.email && (
-                <p className="text-start mt-2 text-sm text-red-400">
+                <p
+                  id="email-error"
+                  className="text-start mt-2 text-sm text-red-400"
+                >
                   {errors.email.message}
                 </p>
               )}
@@ -251,11 +265,17 @@ const Contact = () => {
               <input
                 type="text"
                 id="subject"
+                aria-invalid={errors.subject ? "true" : "false"}
+                aria-describedby={errors.subject ? "subject-error" : undefined}
+                aria-required="true"
                 {...register("subject")}
                 className={formInputsClass}
               />
               {errors.subject && (
-                <p className="text-start mt-2 text-sm text-red-400">
+                <p
+                  id="subject-error"
+                  className="text-start mt-2 text-sm text-red-400"
+                >
                   {errors.subject.message}
                 </p>
               )}
@@ -267,11 +287,17 @@ const Contact = () => {
               </label>
               <textarea
                 id="message"
+                aria-invalid={errors.message ? "true" : "false"}
+                aria-describedby={errors.message ? "message-error" : undefined}
+                aria-required="true"
                 {...register("message")}
                 className={`${formInputsClass} resize-y min-h-30`}
               ></textarea>
               {errors.message && (
-                <p className="text-start mt-2 text-sm text-red-400">
+                <p
+                  id="message-error"
+                  className="text-start mt-2 text-sm text-red-400"
+                >
                   {errors.message.message}
                 </p>
               )}

@@ -7,33 +7,27 @@ import { cn } from "@/lib/utils";
 
 const categoryTabs = [
   {
-    id: 1,
-    category: "all skills",
+    id: "all",
     text: "All Skills",
   },
   {
-    id: 2,
-    category: "frontend",
+    id: "frontend",
     text: "Frontend",
   },
   {
-    id: 3,
-    category: "state management",
+    id: "state-management",
     text: "State Management",
   },
   {
-    id: 4,
-    category: "forms & validation",
+    id: "forms-and-validation",
     text: "Forms & Validation",
   },
   {
-    id: 5,
-    category: "tools",
+    id: "tools",
     text: "Tools",
   },
   {
-    id: 6,
-    category: "deployment",
+    id: "deployment",
     text: "Deployment",
   },
 ];
@@ -65,7 +59,7 @@ const activeCategoryTabClass = `
   `;
 
 const Skills = () => {
-  const [activeCategory, setActiveCategroy] = useState<string>("all skills");
+  const [activeCategory, setActiveCategroy] = useState<string>("all");
 
   return (
     <section
@@ -83,28 +77,40 @@ const Skills = () => {
             </p>
           </div>
 
-          <div className="flex justify-center gap-5 flex-wrap mb-10">
+          <div
+            role="tablist"
+            aria-label="skills categories"
+            className="flex justify-center gap-5 flex-wrap mb-10"
+          >
             {categoryTabs.map((category) => (
-              <div
+              <button
+                id={`${category.id}-tab`}
+                role="tab"
+                aria-selected={activeCategory === category.id}
+                aria-controls={`${category.id}-panel`}
                 key={category.id}
                 className={cn(
                   categoryTabClass,
-                  activeCategory === category.category &&
-                    activeCategoryTabClass,
+                  activeCategory === category.id && activeCategoryTabClass,
                 )}
-                onClick={() => setActiveCategroy(category.category)}
+                onClick={() => setActiveCategroy(category.id)}
               >
                 {category.text}
-              </div>
+              </button>
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-5 justify-center mt-15">
-            {activeCategory === "all skills"
+          <div
+            id={`${activeCategory}-panel`}
+            role="tabpanel"
+            aria-labelledby={`${activeCategory}-tab`}
+            className="flex flex-wrap gap-5 justify-center mt-15"
+          >
+            {activeCategory === "all"
               ? skillsData.map((skill) => (
                   <div
                     key={skill.id}
-                    className="w-37.5 h-42.5 my-5 mx-1.25 md:w-50 md:h-57.5 md:my-7.5 md:mx-2.5 relative cursor-pointer transition-all duration-300 hover:-translate-y-2.5 group"
+                    className="w-37.5 h-42.5 my-5 mx-1.25 md:w-50 md:h-57.5 md:my-7.5 md:mx-2.5 relative transition-all duration-300 hover:-translate-y-2.5 group"
                   >
                     <div className="relative w-full h-full overflow-hidden rounded-[20px] rotate-30 bg-[linear-gradient(135deg,var(--carbon-medium),var(--carbon-light))] border-2 border-metal-dark transition-all duration-300 group-hover:border-[var(--accent-cyan)] group-hover:shadow-[0_5px_20px_rgba(69,171,255,0.3)]">
                       <div className="w-full h-full absolute top-0 left-0 -rotate-30 flex flex-col justify-center items-center p-5">
@@ -126,7 +132,7 @@ const Skills = () => {
                   .map((skill) => (
                     <div
                       key={skill.id}
-                      className="w-37.5 h-42.5 my-5 mx-1.25 md:w-50 md:h-57.5 md:my-7.5 md:mx-2.5 relative cursor-pointer transition-all duration-300 hover:-translate-y-2.5 group"
+                      className="w-37.5 h-42.5 my-5 mx-1.25 md:w-50 md:h-57.5 md:my-7.5 md:mx-2.5 relative transition-all duration-300 hover:-translate-y-2.5 group"
                     >
                       <div className="relative w-full h-full overflow-hidden rounded-[20px] rotate-30 bg-[linear-gradient(135deg,var(--carbon-medium),var(--carbon-light))] border-2 border-metal-dark transition-all duration-300 group-hover:border-[var(--accent-cyan)] group-hover:shadow-[0_5px_20px_rgba(69,171,255,0.3)]">
                         <div className="w-full h-full absolute top-0 left-0 -rotate-30 flex flex-col justify-center items-center p-5">

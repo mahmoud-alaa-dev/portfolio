@@ -82,6 +82,7 @@ const Navbar = () => {
             </h1>
           </div>
           <ul
+            id="navMenu"
             className={`ul md:flex md:text-[10px] lg:text-[12px] xl:text-[16px] ${isOpen ? "active" : ""}`}
             style={{ width: isMobile ? navWidth : undefined }}
           >
@@ -107,16 +108,20 @@ const Navbar = () => {
               Get in touch
             </Button>
           </div>
-          <div
+          <button
             className={`menu-toggle md:hidden ${isOpen ? "active" : ""}`}
+            type="button"
+            aria-label="menu button"
+            aria-expanded={isOpen}
+            aria-controls="navMenu"
             onClick={() => {
               setIsOpen((prev) => !prev);
             }}
           >
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
         </nav>
       </header>
     </Container>
